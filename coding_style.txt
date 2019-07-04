@@ -1,0 +1,52 @@
+// ALL INCLUDES AT THE BEGINING
+#include<webots/robot.h> // first; webots headers
+#include <webots/distance_sensor.h>
+#include <webots/motor.h>
+
+#include <stdio.h> // second; Generic header
+#include <math.h>
+
+"include "./root/to/your/custom/library/custom1.h"
+"include "./root/to/your/custom/library/custom2.h"
+
+// MACROS DECLARATION
+#define TIME_STEP 64 // all macros should be written in UPPERCASES
+#define PI 3.1459
+
+// typesdef
+typedef struc Books{
+   char ;
+   char ;
+   char ;
+   int ;
+ } book;
+ 
+ // GLOBAL VARIABLES 
+ int global_counter = 0; // lower cases 
+ float promedio;
+ int a,b,c;
+ int x,
+ int y;
+ int z;  
+ 
+ //PROTOTYPES DECLARAITION
+ float(promedio dato1, float dato2, float dato3);
+ 
+ void main(void) { 
+ 
+   int main_counter = 0;
+   float main_avg;
+   
+   for (size_t i = 0; i < 50; i++){
+   main_counter++;
+   
+   if (main_counter > 25) {
+   
+   } else {
+   
+   }
+  }
+ 
+ }
+ 
+ 

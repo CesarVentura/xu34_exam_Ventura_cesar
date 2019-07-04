@@ -1,0 +1,123 @@
+#VRML_OBJ R2019a utf8
+Robot {
+  translation 0 0.075 0
+  children [
+    DEF G_box Group {
+      children [
+        DEF ROBOD_BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.6431372549019608 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF G_BODY Box {
+            size 0.25 0.07 0.1
+          }
+        }
+        Transform {
+          translation 0.09 -0.056 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.02
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF WHEEL1_JOINT HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.05 0 0.06
+      }
+      device [
+        PositionSensor {
+          name "encoder1"
+        }
+        RotationalMotor {
+          name "motor_righ"
+          maxVelocity 60
+          maxTorque 0.0078
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation -0.05 0 0.06
+        rotation -0.678976748971121 0.5191302289379282 -0.5191284809750488 1.948642546262657
+        children [
+          DEF SH_WELL_SHApe Shape {
+            appearance PBRAppearance {
+              baseColor 0.9333333333333333 0.9333333333333333 0.9254901960784314
+              roughness 1
+              metalness 0
+            }
+            geometry DEF G_WHEEL Cylinder {
+              height 0.02
+              radius 0.075
+            }
+          }
+        ]
+        boundingObject USE G_WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHELL_2 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.05 0 -0.06
+      }
+      device [
+        RotationalMotor {
+          name "motor_left"
+          maxVelocity 60
+          maxTorque 0.0078
+        }
+      ]
+      endPoint DEF WHELL2 Solid {
+        translation -0.05015668570260875 -0.002604342649824373 -0.059985543342984976
+        rotation 0.9995841866124602 0.021025557274083978 0.01973270928231735 1.608088878157213
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.9333333333333333 0.9333333333333333 0.9254901960784314
+              roughness 1
+              metalness 0
+            }
+            geometry USE G_WHEEL
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE SH_WELL_SHApe
+        physics Physics {
+        }
+      }
+    }
+    DistanceSensor {
+      translation 0.125 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
+          }
+          geometry Box {
+            size 0.02 0.01 0.01
+          }
+        }
+      ]
+      name "distance_sensor"
+      lookupTable [
+        0 0 0
+        0.02 0 0
+        11 1023 0
+      ]
+      resolution 1
+    }
+  ]
+  boundingObject USE G_box
+  physics Physics {
+  }
+  controller "Robot1"
+}

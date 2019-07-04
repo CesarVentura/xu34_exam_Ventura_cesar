@@ -1,0 +1,25 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.4222651973007188 0.8848304033066335 0.19689403376640258 0.9380813093670926
+  position 0.4428881734186425 0.30482894025884805 0.4044909593499644
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.015
+      }
+    }
+  ]
+}
