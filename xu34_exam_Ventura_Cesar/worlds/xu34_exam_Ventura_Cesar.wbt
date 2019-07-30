@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.009086711021776519 0.9998430549335802 0.015208457643441949 1.5744336928490508
-  position 2.2991802367261758 0.4335327236774261 0.6274401985792187
+  orientation -0.05097394835508173 0.9976398060647705 0.04600515127831263 1.3263859840114642
+  position 1.638604714151383 0.4730930475209271 0.5307269768197538
 }
 TexturedBackground {
 }
@@ -113,7 +113,8 @@ Robot {
       }
     }
     DistanceSensor {
-      translation 0.125 0 0
+      translation 0.125 0 -0.03
+      rotation 0 1 0 0.0872
       children [
         Shape {
           appearance PBRAppearance {
@@ -124,7 +125,7 @@ Robot {
           }
         }
       ]
-      name "distance_sensor"
+      name "distance_sensor1"
       lookupTable [
         0 0 0
         0.02 0 0
@@ -133,7 +134,8 @@ Robot {
       resolution 1
     }
     DistanceSensor {
-      translation 0.125 0 0
+      translation 0.125 0 0.03
+      rotation 0 1 0 -0.0872
       children [
         Shape {
           appearance PBRAppearance {
@@ -144,7 +146,7 @@ Robot {
           }
         }
       ]
-      name "distance_sensor(1)"
+      name "distance_sensor2"
       lookupTable [
         0 0 0
         0.02 0 0
