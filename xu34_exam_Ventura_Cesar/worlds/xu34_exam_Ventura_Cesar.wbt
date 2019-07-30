@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.05097394835508173 0.9976398060647705 0.04600515127831263 1.3263859840114642
-  position 1.638604714151383 0.4730930475209271 0.5307269768197538
+  orientation -0.5071910846490432 -0.844908936665852 -0.1699590903561994 0.7895114348900845
+  position -1.238594351517837 1.3741299719416047 1.486546475652746
 }
 TexturedBackground {
 }
@@ -48,12 +48,12 @@ Robot {
       device [
         PositionSensor {
           name "encoder1"
-          resolution 0.00524
+          resolution 0.005235983
         }
         RotationalMotor {
           name "motor_right"
           maxVelocity 60
-          maxTorque 0.59
+          maxTorque 0.59317
         }
       ]
       endPoint DEF WHEEL1 Solid {
@@ -85,12 +85,12 @@ Robot {
       device [
         PositionSensor {
           name "encoder2"
-          resolution 0.00524
+          resolution 0.005235983
         }
         RotationalMotor {
           name "motor_left"
           maxVelocity 60
-          maxTorque 0.59
+          maxTorque 0.59317
         }
       ]
       endPoint DEF WHELL2 Solid {
@@ -160,5 +160,5 @@ Robot {
   physics Physics {
     density 800
   }
-  controller "Robot1"
+  controller "u3_exam_contoller"
 }
