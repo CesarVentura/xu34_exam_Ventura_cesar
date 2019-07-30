@@ -2,12 +2,161 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.6931032800836722 0.6931032800836722 0.1980295085953349 0.75
-  position 1.2 1.6 2.3
+  orientation -0.009086711021776519 0.9998430549335802 0.015208457643441949 1.5744336928490508
+  position 2.2991802367261758 0.4335327236774261 0.6274401985792187
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Floor {
+}
+Robot {
+  translation 0.1 0.075 0.1
+  children [
+    DEF G_box Group {
+      children [
+        DEF ROBOD_BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.6431372549019608 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF G_BODY Box {
+            size 0.25 0.07 0.1
+          }
+        }
+        Transform {
+          translation 0.09 -0.056 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.02
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF WHEEL1_JOINT HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.05 0 0.06
+      }
+      device [
+        PositionSensor {
+          name "encoder1"
+          resolution 0.00524
+        }
+        RotationalMotor {
+          name "motor_right"
+          maxVelocity 60
+          maxTorque 0.59
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation -0.05000492796956297 2.0762009435543185e-06 0.060009780210849684
+        rotation -0.7279391431397849 0.48482164602771965 -0.48482221012231713 1.8831444413792957
+        children [
+          DEF SH_WELL_SHApe Shape {
+            appearance PBRAppearance {
+              baseColor 0.9333333333333333 0.9333333333333333 0.9254901960784314
+              roughness 1
+              metalness 0
+            }
+            geometry DEF G_WHEEL Cylinder {
+              height 0.02
+              radius 0.075
+            }
+          }
+        ]
+        boundingObject USE G_WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHELL_2 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.05 0 -0.06
+      }
+      device [
+        PositionSensor {
+          name "encoder2"
+          resolution 0.00524
+        }
+        RotationalMotor {
+          name "motor_left"
+          maxVelocity 60
+          maxTorque 0.59
+        }
+      ]
+      endPoint DEF WHELL2 Solid {
+        translation -0.051085965958897986 -0.0023483206808482997 -0.0599803105875687
+        rotation -0.9743436777730753 0.16179887825469644 0.15644654224098223 4.6494435166960795
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.9333333333333333 0.9333333333333333 0.9254901960784314
+              roughness 1
+              metalness 0
+            }
+            geometry USE G_WHEEL
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE SH_WELL_SHApe
+        physics Physics {
+        }
+      }
+    }
+    DistanceSensor {
+      translation 0.125 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
+          }
+          geometry Box {
+            size 0.02 0.01 0.01
+          }
+        }
+      ]
+      name "distance_sensor"
+      lookupTable [
+        0 0 0
+        0.02 0 0
+        5 1659 0
+      ]
+      resolution 1
+    }
+    DistanceSensor {
+      translation 0.125 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
+          }
+          geometry Box {
+            size 0.02 0.01 0.01
+          }
+        }
+      ]
+      name "distance_sensor(1)"
+      lookupTable [
+        0 0 0
+        0.02 0 0
+        5 1659 0
+      ]
+      resolution 1
+    }
+  ]
+  name "robot(1)"
+  boundingObject USE G_box
+  physics Physics {
+    density 800
+  }
+  controller "Robot1"
 }
